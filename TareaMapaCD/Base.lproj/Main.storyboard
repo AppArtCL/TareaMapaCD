@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xLV-ZW-BqT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Marcador de Ruta-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TareaMapaCD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,139 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hzZ-gk-kVi">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfQ-Qo-Enu">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Híbrido">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cambiarMapaHibrido" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bcj-6E-u6o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4q-Uq-yBP">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Satélite">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cambiarMapaSatelite" destination="BYZ-38-t0r" eventType="touchUpInside" id="IDR-7i-6DX"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dWf-Tw-Cg6">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL9-Oi-2Tq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cambiarMapaStandard" destination="BYZ-38-t0r" eventType="touchUpInside" id="t57-1x-OIU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mfQ-Qo-Enu" firstAttribute="trailing" secondItem="hzZ-gk-kVi" secondAttribute="trailing" id="8ix-3m-Pnt"/>
+                            <constraint firstItem="hzZ-gk-kVi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="91S-Tp-bS4"/>
+                            <constraint firstItem="dWf-Tw-Cg6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GNB-8C-3eJ"/>
+                            <constraint firstItem="hzZ-gk-kVi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Hzi-4y-D3v">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="q4q-Uq-yBP" firstAttribute="baseline" secondItem="mfQ-Qo-Enu" secondAttribute="baseline" id="L0L-6I-xCr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hzZ-gk-kVi" secondAttribute="bottom" constant="70" id="Lgt-OD-mAi"/>
+                            <constraint firstItem="kL9-Oi-2Tq" firstAttribute="leading" secondItem="hzZ-gk-kVi" secondAttribute="leading" id="UBa-RX-84X"/>
+                            <constraint firstItem="kL9-Oi-2Tq" firstAttribute="baseline" secondItem="q4q-Uq-yBP" secondAttribute="baseline" id="YEM-sb-e90"/>
+                            <constraint firstItem="hzZ-gk-kVi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="10" id="cbj-dr-hGY">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="dWf-Tw-Cg6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iDn-xM-f6F"/>
+                            <constraint firstItem="q4q-Uq-yBP" firstAttribute="centerX" secondItem="hzZ-gk-kVi" secondAttribute="centerX" id="oNu-3J-fml"/>
+                            <constraint firstItem="hzZ-gk-kVi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="57" id="sLX-b8-HmD">
+                                <variation key="widthClass=compact" constant="13"/>
+                            </constraint>
+                            <constraint firstItem="kL9-Oi-2Tq" firstAttribute="top" secondItem="hzZ-gk-kVi" secondAttribute="bottom" constant="8" symbolic="YES" id="tHS-7E-zzZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="hzZ-gk-kVi"/>
+                                <exclude reference="mfQ-Qo-Enu"/>
+                                <exclude reference="q4q-Uq-yBP"/>
+                                <exclude reference="dWf-Tw-Cg6"/>
+                                <exclude reference="kL9-Oi-2Tq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="91S-Tp-bS4"/>
+                                <exclude reference="Hzi-4y-D3v"/>
+                                <exclude reference="cbj-dr-hGY"/>
+                                <exclude reference="sLX-b8-HmD"/>
+                                <exclude reference="GNB-8C-3eJ"/>
+                                <exclude reference="iDn-xM-f6F"/>
+                                <exclude reference="UBa-RX-84X"/>
+                                <exclude reference="YEM-sb-e90"/>
+                                <exclude reference="tHS-7E-zzZ"/>
+                                <exclude reference="L0L-6I-xCr"/>
+                                <exclude reference="oNu-3J-fml"/>
+                                <exclude reference="Lgt-OD-mAi"/>
+                                <exclude reference="8ix-3m-Pnt"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="hzZ-gk-kVi"/>
+                                <include reference="mfQ-Qo-Enu"/>
+                                <include reference="q4q-Uq-yBP"/>
+                                <include reference="dWf-Tw-Cg6"/>
+                                <include reference="kL9-Oi-2Tq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="91S-Tp-bS4"/>
+                                <include reference="Hzi-4y-D3v"/>
+                                <include reference="cbj-dr-hGY"/>
+                                <include reference="sLX-b8-HmD"/>
+                                <include reference="GNB-8C-3eJ"/>
+                                <include reference="iDn-xM-f6F"/>
+                                <include reference="UBa-RX-84X"/>
+                                <include reference="YEM-sb-e90"/>
+                                <include reference="tHS-7E-zzZ"/>
+                                <include reference="L0L-6I-xCr"/>
+                                <include reference="oNu-3J-fml"/>
+                                <include reference="Lgt-OD-mAi"/>
+                                <include reference="8ix-3m-Pnt"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Marcador de Ruta" id="th5-wR-4x9"/>
+                    <connections>
+                        <outlet property="indicadorActividad" destination="dWf-Tw-Cg6" id="46T-Fd-pA6"/>
+                        <outlet property="mapa" destination="hzZ-gk-kVi" id="4Wx-Fu-dpm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1305" y="344"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QKo-YG-AyG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xLV-ZW-BqT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kEA-Wa-faT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3vW-YG-o00"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxI-Mm-qe5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="387" y="344"/>
         </scene>
     </scenes>
 </document>

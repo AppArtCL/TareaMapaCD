@@ -284,6 +284,7 @@
 				62881FBA1C59DAF400F0BACB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
